@@ -1,0 +1,8 @@
+GET  http://localhost:8080/test
+Content-Type: application/test
+
+{
+    "judul": "algoritma"
+    "penulis" : "dadang"
+    "penerbit" : "asd"
+}
