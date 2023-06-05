@@ -8,7 +8,7 @@ public class MvcReferenceApplication {
 
 	// main app
 	public static void main(String[] args) {
-		SpringApplicationn.run(MvcReferenceApplication.class, args);
+		SpringApplication.run(MvcReferenceApplication.class, args);
 	}
 
 }
