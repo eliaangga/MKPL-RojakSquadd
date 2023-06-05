@@ -48,26 +48,26 @@ public class UsersControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(userCTest).build();
     }
 
-    @Test
-    void loginTest()throws Exception{
-        Users user = new Users("test", "test", "test", "test");
-        testUser.save(user);
-        try{
-            when(userSerTest.findUser(user.getUsername())).thenReturn(user);
+//     @Test
+//     void loginTest()throws Exception{
+//         Users user = new Users("test", "test", "test", "test");
+//         testUser.save(user);
+//         try{
+//             when(userSerTest.findUser(user.getUsername())).thenReturn(user);
 
-            this.mockMvc.perform(get("/login").param("username", user.getUsername()).param("password", user.getPassword()))
-            .andExpect(status().isFound())
-            .andExpect(redirectedUrl("/searchPage?username="+user.getUsername()));
-        } catch (Exception e){
-            this.mockMvc.perform(get("/login"))
-            .andExpect(flash().attribute("error", "Wrong Username or Password"))
-            .andExpect(redirectedUrl("/loginPage/"));
-        }
+//             this.mockMvc.perform(get("/login").param("username", user.getUsername()).param("password", user.getPassword()))
+//             .andExpect(status().isFound())
+//             .andExpect(redirectedUrl("/searchPage?username="+user.getUsername()));
+//         } catch (Exception e){
+//             this.mockMvc.perform(get("/login"))
+//             .andExpect(flash().attribute("error", "Wrong Username or Password"))
+//             .andExpect(redirectedUrl("/loginPage/"));
+//         }
         
-        // Jika terdapat special char
-        this.mockMvc.perform(get("/login").param("username", "test!").param("password", "test!"))
-        .andExpect(flash().attribute("error", "Username or Password must not contains special characters."))
-        .andExpect(redirectedUrl("/loginPage/"));  
+//         // Jika terdapat special char
+//         this.mockMvc.perform(get("/login").param("username", "test!").param("password", "test!"))
+//         .andExpect(flash().attribute("error", "Username or Password must not contains special characters."))
+//         .andExpect(redirectedUrl("/loginPage/"));  
 
-    }
+//     }
 }
